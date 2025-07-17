@@ -1,37 +1,4 @@
-# CodeCollab - Real-time Code Collaboration Platform
-
-## Overview
-
-CodeCollab is a real-time collaborative code editor that allows multiple users to edit documents simultaneously with live cursors, chat functionality, and version history. The application is built with a modern full-stack architecture using React, Express, TypeScript, and WebSocket technology.
-
-## User Preferences
-
-Preferred communication style: Simple, everyday language.
-
-## System Architecture
-
-### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for development and build optimization
-- **UI Framework**: Radix UI components with custom styling
-- **Styling**: Tailwind CSS with custom design tokens
-- **State Management**: TanStack Query for server state management
-- **Routing**: Wouter for lightweight client-side routing
-- **Real-time Communication**: WebSocket API for live collaboration
-
-### Backend Architecture
-- **Runtime**: Node.js with Express.js server
-- **Language**: TypeScript with ESM modules
-- **API Pattern**: RESTful endpoints with WebSocket integration
-- **Session Management**: Express sessions with PostgreSQL store
-- **Error Handling**: Centralized error middleware
-
-### Database & ORM
-- **Database**: PostgreSQL (configured via DATABASE_URL)
-- **ORM**: Drizzle ORM for type-safe database operations
-- **Migration**: Drizzle Kit for schema management
-- **Connection**: Neon serverless PostgreSQL adapter
-
+ 
 ## Key Components
 
 ### Real-time Collaboration System
