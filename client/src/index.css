@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* CodeCollab specific colors */
+  --editor-bg: hsl(0, 0%, 12.2%);
+  --editor-sidebar: hsl(0, 0%, 14.5%);
+  --editor-toolbar: hsl(0, 0%, 17.6%);
+  --vscode-blue: hsl(207, 90%, 54%);
+  --online-green: hsl(122, 39%, 49%);
+  --warning-orange: hsl(36, 100%, 50%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Monaco Editor Styles */
+.monaco-editor {
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* Collaboration Cursors */
+.collaboration-cursor {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  animation: blink 1s infinite;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.collaboration-cursor::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid inherit;
+}
+
+.collaboration-cursor-label {
+  position: absolute;
+  top: -24px;
+  left: -8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  color: white;
+  font-weight: 500;
+}
+
+/* User Selection Highlights */
+.user-selection {
+  background-color: rgba(0, 122, 204, 0.2);
+  border: 1px solid rgba(0, 122, 204, 0.4);
+  border-radius: 2px;
+}
+
+/* Syntax Highlighting Colors */
+.syntax-keyword { color: hsl(207, 61%, 59%); }
+.syntax-string { color: hsl(17, 47%, 64%); }
+.syntax-comment { color: hsl(101, 29%, 47%); }
+.syntax-function { color: hsl(54, 70%, 68%); }
+.syntax-number { color: hsl(95, 38%, 62%); }
+.syntax-property { color: hsl(220, 14%, 71%); }
+.syntax-operator { color: hsl(0, 0%, 88%); }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--editor-bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(240, 5%, 34%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(240, 5%, 44%);
+}
+
+/* Typing indicator animation */
+.typing-dot {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .monaco-editor {
+    font-size: 12px !important;
+  }
+  
+  .collaboration-cursor {
+    width: 1px;
+    height: 16px;
+  }
+}
