@@ -24,30 +24,68 @@ graphql
 Copy
 Edit
 CodeCollabEditor/
-├── client/            # Frontend React application
-│   ├── src/
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   │   ├── pages/          # Pages: editor, invitations, 404
-│   │   ├── components/     # Reusable UI components
-│   │   ├── hooks/          # Custom React hooks
-│   │   └── lib/            # Utility libraries
-├── server/            # Backend Node.js server
-│   ├── index.ts
-│   ├── db.ts
-│   ├── routes.ts
-│   ├── storage.ts
-│   └── vite.ts
-├── shared/            # Shared TypeScript schemas
-│   └── schema.ts
-├── tmp/               # Windows-specific setup assets
-├── attached_assets/   # Logs & errors
-├── .git/              # Git repository
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-├── vite.config.ts
-└── README.md          # You’re reading it!
+CodeCollabEditor/
+│
+├── client/                      # 🌐 Frontend (React + Vite)
+│   ├── index.html               # App entry HTML
+│   └── src/                     # React source code
+│       ├── App.tsx              # Root React component
+│       ├── main.tsx             # Entry point (ReactDOM)
+│       ├── index.css            # Global styles
+│       │
+│       ├── components/          # UI components
+│       │   ├── ChatSidebar.tsx
+│       │   ├── CodeEditor.tsx
+│       │   ├── InviteButton.tsx
+│       │   ├── LeftSidebar.tsx
+│       │   ├── Toolbar.tsx
+│       │   └── ui/              # Primitive UI components
+│       │
+│       ├── hooks/               # Reusable React hooks
+│       │   ├── use-mobile.tsx
+│       │   ├── use-toast.ts
+│       │   ├── useCollaboration.ts
+│       │   └── useWebSocket.ts
+│       │
+│       ├── lib/                 # Utilities & helpers
+│       │   ├── queryClient.ts
+│       │   └── utils.ts
+│       │
+│       └── pages/               # Application pages
+│           ├── editor.tsx
+│           └── not-found.tsx
+│
+├── server/                      # 🖥️ Backend (Node.js + WebSockets)
+│   ├── index.ts                 # Server entry point
+│   ├── routes.ts                # API endpoints
+│   ├── storage.ts               # File/database storage
+│   └── vite.ts                  # Vite SSR integration
+│
+├── shared/                      # 🔄 Shared Types & Schemas
+│   └── schema.ts                # Shared TypeScript types
+│
+├── tmp/                         # 🪟 Windows setup helpers
+│   └── (empty or scripts/docs here)
+│
+├── .gitignore                   # Git ignored files
+├── package.json                 # npm scripts & dependencies
+├── package-lock.json            # npm lockfile
+├── package-windows.json         # Alternative Windows-specific package file
+│
+├── tsconfig.json                # TypeScript configuration
+├── tailwind.config.ts           # TailwindCSS config
+├── tailwind.config.windows.ts   # Optional Windows-tailored config
+├── postcss.config.js            # PostCSS config
+├── drizzle.config.ts            # (optional: DB config if used)
+├── components.json              # Component config (optional, maybe storybook?)
+│
+├── vite.config.ts               # Vite build config
+├── vite.config.windows.ts       # Vite config for Windows
+│
+├── README.md                    # Project documentation
+├── WINDOWS_SETUP.md             # Windows setup guide
+├── DEPLOYMENT_GUIDE.md          # Deployment instructions
+
 
 
 
