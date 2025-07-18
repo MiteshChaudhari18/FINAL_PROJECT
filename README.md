@@ -20,10 +20,7 @@ Built with:
 ✅ Cross-platform support with scripts for Windows and Linux
 
 📂 Project Structure
-graphql
-Copy
-Edit
-CodeCollabEditor/
+
 CodeCollabEditor/
 │
 ├── client/                      # 🌐 Frontend (React + Vite)
